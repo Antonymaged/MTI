@@ -11,6 +11,9 @@ connection = engine.connect()
 def home():
     return render_template("home.html")
     
+@app.route('/player')
+def players():
+    return render_template("./templates/players.html")
 
 connection.close()
 if __name__ == "__main__":
