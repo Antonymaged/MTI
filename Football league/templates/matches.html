@@ -1,13 +1,66 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/matches.css">
-    <link rel="icon" href="../static/imges/icon-football.jpeg" />
-    <title>Football</title>
+   <link rel="stylesheet" href="../static/css/matches.css">
+   <link rel="icon" href="/image/icon-football.jpeg" />
+    <title>Matches</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <div class="logo">
+          <a href="/home">
+            <img
+             src="../static/imges/PL-Right-image.png"
+             alt="ball"
+             height="50px"
+             width="60px"
+            />
+          </a>
+          <strong>Football League</strong>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/players">Players</a></li>
+            <li><a href="/clubs">Clubs</a></li>
+            <li><a href="#">Matches</a></li>
+            <li><a href="/league">League</a></li>
+          </ul>
+        </nav>
+      </header>
+<br><br><br><br><br>
+<br><br><br><br><br>
+
+<h1>Football Matches</h1>
+
+  <table>
+    <thead>
+        <tr>
+            <th>Match ID</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Date</th>
+            <th>Stadium</th>
+            <th>Attendance</th>
+        </tr>
+      </thead>
+      <tbody id="match-list">
+        {% for match in matches %}
+          <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ match.hometeam }}</td>
+              <td>{{ match.awayteam }}</td>
+              <td>{{ match.dates }}</td>
+              <td>{{ match.stadium }}</td>
+              <td>{{ match.attendance }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
 </body>
 </html>

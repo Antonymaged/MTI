@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/league.css">
-    <link rel="icon" href="../static/imges/icon-football.jpeg" />
-    <title>Football</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <link rel="stylesheet" href="../static/css/league.css" />
+    <link rel="icon" href="/image/icon-football.jpeg" />
+    <title>league</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="/index.html">
+          <img
+           src="../static/imges/PL-Right-image.png"
+           alt="ball"
+           height="50px"
+           width="60px"
+          />
+        </a>
+        <strong>Football league</strong>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/players">Players</a></li>
+          <li><a href="/clubs">Clubs</a></li>
+          <li><a href="/matches">Matches</a></li>
+          <li><a href="#">League</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="league-container">
+      <h1>League Table</h1>
+      <table class="league-table">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Club</th>
+            <th>Match played</th>
+            <th>Win</th>
+            <th>Drawn</th>
+            <th>Lose</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>GD</th>
+            <th>Points</th>
+          </tr>
+          
+        </thead>
+        <tbody>
+          {% for team in league %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ team.cname }}</td>
+              <td>{{ team.played }}</td>
+              <td>{{ team.won }}</td>
+              <td>{{ team.drawn }}</td>
+              <td>{{ team.lost }}</td>
+              <td>{{ team.goalsF }}</td>
+              <td>{{ team.goalsA }}</td>
+              <td>{{ team.goalsD }}</td>
+              <td>{{ team.points }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </body>
 </html>
