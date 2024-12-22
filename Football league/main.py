@@ -56,15 +56,23 @@ def club_info():
     with engine.connect() as connection:
         query = text("SELECT * FROM clubs WHERE cname = '{}'".format(team))
         result = connection.execute(query)
-        rows = result.fetchall()
+        rows = result.fetchone()
         for row in rows:
             print(row)
 
-    return render_template("club-info.html")
+    return render_template("club-info.html", club=rows)
 
 @app.route('/info-player')
 def info_player():
-    return render_template("info-player.html")
+    player = request.args.get('player')
+    with engine.connect() as connection:
+        query = text("SELECT * FROM players WHERE pname = '{}'".format(player))
+        result = connection.execute(query)
+        rows = result.fetchone()
+        for row in rows:
+            print(row)
+
+    return render_template("info-player.html", player = rows)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
